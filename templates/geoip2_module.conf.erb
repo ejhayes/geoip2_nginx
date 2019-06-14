@@ -1,0 +1,13 @@
+geoip2 <%= node[cookbook_name]['geoip2']['country_file'] %> {
+    auto_reload <%= node[cookbook_name]['geoip2']['auto_reload_duration'] %>;
+    $geoip2_metadata_country_build metadata build_epoch;
+    $geoip2_data_country_code country iso_code;
+    $geoip2_data_country_name country names en;
+}
+
+geoip2 <%= node[cookbook_name]['geoip2']['city_file'] %> {
+    auto_reload <%= node[cookbook_name]['geoip2']['auto_reload_duration'] %>;
+    $geoip2_metadata_city_build metadata build_epoch;
+    $geoip2_data_state_code subdivisions 0 iso_code;
+    $geoip2_data_city_name city names en;
+}
